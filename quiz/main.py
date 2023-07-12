@@ -58,6 +58,21 @@ def show_result():
     option2_btn.config(state=tk.DISABLED)
     option3_btn.config(state=tk.DISABLED)
     option4_btn.config(state=tk.DISABLED)
+    play_again_btn.pack()
+
+# Função para jogar novamente
+
+
+def play_again():
+    global score, current_question
+    score = 0
+    current_question = 0
+    random.shuffle(questions)
+    option1_btn.config(state=tk.NORMAL)
+    option2_btn.config(state=tk.NORMAL)
+    option3_btn.config(state=tk.NORMAL)
+    option4_btn.config(state=tk.NORMAL)
+    play_again_btn.pack_forget()
 
 
 # importando biblioteca tk e configurando a janela
@@ -103,7 +118,7 @@ option4_btn = tk.Button(main_window, text="", width=30,
                         bg=button_color, fg=button_text_color, state=tk.DISABLED, font=("Arial", 10, "bold"))
 option4_btn.pack(pady=10)
 
-play_again_btn = tk.Button(main_window, text="Jogar Novamente", width=30,
+play_again_btn = tk.Button(main_window, command=play_again, text="Jogar Novamente", width=30,
                            bg=button_color, fg=button_text_color, font=("Arial", 10, "bold"))
 # play_again_btn.pack(pady=20)
 
